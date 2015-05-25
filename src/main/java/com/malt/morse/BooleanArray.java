@@ -1,4 +1,4 @@
-package morse;
+package com.malt.morse;
 
 import java.util.Arrays;
 

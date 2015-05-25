@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-import morse.BooleanArray;
+import com.malt.morse.BooleanArray;
 
 
 public class MorseTest {
