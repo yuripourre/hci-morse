@@ -26,6 +26,8 @@ public class MorseKeyboardApplication extends Application implements UpdateInter
 	private List<Boolean> sentence = new ArrayList<Boolean>();
 	
 	private MorseCode codes = new MorseCodeInternational();
+	
+	private String symbols = "";
 		
 	public MorseKeyboardApplication(int w, int h) {
 		super(w, h);
@@ -34,8 +36,6 @@ public class MorseKeyboardApplication extends Application implements UpdateInter
 	@Override
 	public void load() {
 		
-		
-				
 		updateAtFixedRate(10, this);
 		
 		loading = 100;
@@ -46,17 +46,22 @@ public class MorseKeyboardApplication extends Application implements UpdateInter
 		
 		int count = 0;
 		int offsetX = 10;
+		int size = 10;
 		
 		g.setColor(Color.BLACK);
+		g.setBasicStroke(3);
 		
 		for(Boolean b: sentence) {
 			if(b == MorseCode.DOT) {
-				g.fillOval(offsetX+5*count+1, 40, 3, 3);
+				g.fillOval(offsetX+(size*2)*count+1, 40, size, size);
 			} else {
-				g.drawLine(offsetX+5*count, 40+2, offsetX+5*count+4, 40+2);
+				g.drawLine(offsetX+(size*2)*count, 40+(size/2), offsetX+(size*2)*count+size, 40+(size/2));
 			}
 			count++;
 		}
+		
+		g.setFontSize(40);
+		g.drawStringShadowX(300, symbols);
 	}
 	
 	public GUIEvent updateKeyboard(KeyEvent event) {
@@ -80,7 +85,6 @@ public class MorseKeyboardApplication extends Application implements UpdateInter
 		} else {
 			sentence.add(MorseCode.DOT);
 		}
-		
 	}
 	
 	@Override
@@ -108,6 +112,7 @@ public class MorseKeyboardApplication extends Application implements UpdateInter
 		
 		if(symbol != null) {
 			System.out.println("Found: "+symbol);
+			symbols += symbol;
 		} else {
 			System.out.println("Symbol not Found.");
 		}

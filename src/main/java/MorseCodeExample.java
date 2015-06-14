@@ -1,4 +1,8 @@
+import presentation.Presentation;
+import presentation.Slide1;
 import morse.MorseKeyboardApplication;
+import morse.MorseSerialApplication;
+import morse.StoppedMorseSerialApplication;
 import br.com.etyllica.EtyllicaFrame;
 import br.com.etyllica.context.Application;
 
@@ -7,8 +11,13 @@ public class MorseCodeExample extends EtyllicaFrame {
 
 	private static final long serialVersionUID = 7739713774644387495L;
 
+	/**
+	 * sudo chgrp uucp /var/lock
+	 * sudo chmod 775 /var/lock
+	 */
+	
 	public MorseCodeExample() {
-		super(100,100);
+		super(1024,640);
 	}
 
 	// Main program
@@ -20,7 +29,12 @@ public class MorseCodeExample extends EtyllicaFrame {
 	@Override
 	public Application startApplication() {
 		initialSetup("../");
-		return new MorseKeyboardApplication(w, h);
+		//return new Slide1(w, h);
+		
+		//return new MorseKeyboardApplication(w, h);		
+		return new MorseSerialApplication(w, h);
+		//return new Slide1(w, h);		
+		//return new StoppedMorseSerialApplication(w, h);
 	}
 
 }
