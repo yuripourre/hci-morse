@@ -37,6 +37,6 @@ void loop() {
       digitalWrite(ledPin, LOW);
       Serial.println("LED OFF"); // send a message via serial interface
     }
-    lastState = buttonState
+    lastState = buttonState;
   }
 }
