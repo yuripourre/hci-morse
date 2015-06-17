@@ -15,11 +15,12 @@ import br.com.etyllica.core.graphics.Graphic;
 
 import com.malt.morse.BooleanArray;
 import com.malt.morse.MorseCode;
+import com.malt.morse.MorseCodeInternational;
 import com.malt.serial.SerialReader;
 
 public class MorseSerialApplication extends Application implements UpdateIntervalListener, SerialPortEventListener {
 	
-	private MorseCode code = new MorseCode();
+	private MorseCode code = new MorseCodeInternational();
 	
 	private long lastPressedTimestamp = 0;
 	

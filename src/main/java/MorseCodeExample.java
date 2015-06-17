@@ -30,7 +30,7 @@ public class MorseCodeExample extends EtyllicaFrame {
 	public Application startApplication() {
 		initialSetup("../");
 		//return new Slide1(w, h);
-		
+		                       
 		//return new MorseKeyboardApplication(w, h);		
 		return new MorseSerialApplication(w, h);
 		//return new Slide1(w, h);		
